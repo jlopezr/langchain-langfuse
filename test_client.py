@@ -1,8 +1,9 @@
 import requests
+import sys
 
-def test_chat():
+def test_chat(query=None):
     url = "http://127.0.0.1:5000/chat"
-    payload = {"message": "What's the capital of Catalonia?"}
+    payload = {"message": query }
     headers = {"Content-Type": "application/json"}
     
     response = requests.post(url, json=payload, headers=headers)
@@ -13,4 +14,8 @@ def test_chat():
         print("Failed to get response. Status code:", response.status_code)
 
 if __name__ == "__main__":
-    test_chat()
+    if len(sys.argv) > 1:
+        query = " ".join(sys.argv[1:])
+    else:
+        query = "What's the capital of Catalonia?"
+    test_chat(query)
