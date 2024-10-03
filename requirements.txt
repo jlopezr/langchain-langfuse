@@ -1,5 +1,6 @@
 langchain
 langchain-ollama
-openai
+langchain-openai
 fastapi
 uvicorn
+langfuse
