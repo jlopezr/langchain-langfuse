@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   langfuse:
     image: langfuse/langfuse:latest
@@ -29,6 +27,12 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
 
 volumes:
   postgres_data:
