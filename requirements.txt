@@ -7,6 +7,6 @@ langfuse
 # fastapi server
 fastapi
 uvicorn
-# langserve
-langserve
+# langserve & client
+langserve[all]
 sse_starlette

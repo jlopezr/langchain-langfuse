@@ -10,7 +10,7 @@ from langfuse.callback import CallbackHandler
 from langchain_core.runnables.config import RunnableConfig
 
 # 1. Create prompt template
-system_template = "Translate the following into {language}:"
+system_template = "Translate the following into {language}, please do not add extra comments or notes only the translation:"
 prompt_template = ChatPromptTemplate.from_messages([
     ('system', system_template),
     ('user', '{text}')
