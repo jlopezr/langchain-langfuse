@@ -19,4 +19,5 @@ langfuse_handler = CallbackHandler(
 def get_response(user_input):    
     # Generate a response from the model
     response = model.invoke(user_input, config={"callbacks": [langfuse_handler]})
+
     return response

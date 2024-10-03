@@ -1,4 +1,4 @@
-from langchain import OpenAI
+from langchain_openai.llms import OpenAI
 import os
 
 # Ensure you have set your OpenAI API key as an environment variable
