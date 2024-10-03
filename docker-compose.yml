@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  langfuse:
+    image: langfuse/langfuse:latest
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "postgresql://postgres:password@postgres:5432/langfuse"
+      NEXTAUTH_URL: "http://localhost:3000"
+      NEXTAUTH_SECRET: "mysecret"
+      SALT: "mysalt"
+      ENCRYPTION_KEY: "0000000000000000000000000000000000000000000000000000000000000000" # generate via: openssl rand -hex 32
+    depends_on:
+      - postgres
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "langfuse"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
