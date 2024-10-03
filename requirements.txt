@@ -1,6 +1,12 @@
+# langchain
 langchain
 langchain-ollama
 langchain-openai
+# langfuse
+langfuse
+# fastapi server
 fastapi
 uvicorn
-langfuse
+# langserve
+langserve
+sse_starlette
